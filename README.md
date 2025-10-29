@@ -22,30 +22,8 @@ All carousel items have `data-action="download"` and trigger download functional
 | **PanKbase Donors** | `pankbase-donors` | `/download/pankbase-donors` | Downloads donor metadata (3.7K donors) in tsv format |
 | **PanKbase Biosamples** | `pankbase-biosamples` | `/download/pankbase-biosamples` | Downloads biosample data (3.6K samples) in tsv format|
 
-**Handler Function**: `handleDownload(resource, url, title)`
-
 **Current Implementation**: Shows alert with download information
 
-**Future Implementation**:
-```javascript
-function handleDownload(resource, url, title) {
-    // Option 1: Direct download link
-    window.location.href = url;
-    
-    // Option 2: API call with download
-    fetch(url, { method: 'GET' })
-        .then(response => response.blob())
-        .then(blob => {
-            const downloadUrl = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = downloadUrl;
-            a.download = `${resource}.zip`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        });
-}
-```
 
 ---
 
@@ -61,7 +39,6 @@ All cards in the Tools & Resources section have `data-action="navigate"` and nav
 | **User Guide** 📖 | `user-guide` | `/user-guide` | Navigates to comprehensive user guide |
 | **Data Library News** 📰 | `news` | `/news` | Navigates to news and announcements page |
 
-**Handler Function**: `handleNavigate(page, url, title)`
 
 **Current Implementation**: Shows alert with navigation information
 
@@ -82,26 +59,8 @@ All cards in the Data Access section have `data-action="browse"` and filter/brow
 | **Principal Analysis Results** 📈 (47) | `principal-results` | `/browse/principal-results` | Browses final analysis results (47 records) on Dl|
 | **Workflows** ⚙️ (5) | `workflows` | `/browse/workflows` | Browses analysis workflows (5 records) on DL|
 
-**Handler Function**: `handleBrowse(category, url, title)`
-
 **Current Implementation**: Shows alert with browse information
 
-**Future Implementation**:
-```javascript
-function handleBrowse(category, url, title) {
-    // Navigation with category filter
-    window.location.href = url;
-    
-    // Or with query parameters
-    // window.location.href = `/browse?category=${category}`;
-    
-    // Or dynamic content loading
-    // loadBrowseView(category);
-    
-    // Or set filter state
-    // setFilter({ category: category });
-}
-```
 
 ---
 
@@ -142,7 +101,8 @@ Check data-action attribute
 ## TODO for Full Implementation
 
 ### 1. Download Functionality
-- [ ] Implement file download for carousel items
+- [ ] Implement file download for carousel items from s3
+- [ ] Items appear in chronological order
 - [ ] Add download progress indicator
 - [ ] Handle large file downloads
 - [ ] Add authentication if required
