@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PanKbase - Data Library</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: white;
+            border-bottom: 3px solid #219197;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #219197, #1a7471);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .logo-subtitle {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #219197;
+        }
+
+        .nav-menu .active {
+            color: #219197;
+            font-weight: 600;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 40px;
+        }
+
+        /* Search Bar Section */
+        .search-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .search-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: #219197;
+        }
+
+        .search-bar button {
+            padding: 12px 30px;
+            background-color: #219197;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #1a7471;
+        }
+
+        /* Section Headers */
+        .section-header {
+            font-size: 26px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #219197;
+        }
+
+        /* Carousel Section */
+        .carousel-section {
+            margin-bottom: 50px;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            background: white;
+            padding: 30px 60px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .carousel-wrapper {
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-item {
+            min-width: 280px;
+            background: linear-gradient(135deg, #219197, #1a7471);
+            border-radius: 8px;
+            padding: 25px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .carousel-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(33, 145, 151, 0.3);
+        }
+
+        .carousel-item-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .carousel-item-description {
+            font-size: 13px;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .carousel-item-meta {
+            font-size: 11px;
+            opacity: 0.7;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            color: #219197;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .carousel-btn-left {
+            left: 10px;
+        }
+
+        .carousel-btn-right {
+            right: 10px;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+            border-top: 4px solid #219197;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #219197, #1a7471);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card-count {
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .card-description {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Info Banner */
+        .info-banner {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            border-left: 4px solid #219197;
+        }
+
+        .info-banner p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .carousel-container {
+                padding: 30px 20px;
+            }
+
+            .carousel-item {
+                min-width: 220px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo-section">
+            <div class="logo-icon">PK</div>
+            <div class="logo-text">
+                <div class="logo-title">PanKbase</div>
+                <div class="logo-subtitle">a pancreas knowledge base</div>
+            </div>
+        </div>
+        <nav class="nav-menu">
+            <a href="#funding">Funding Opportunities 🔬</a>
+            <a href="#home">Home</a>
+            <a href="#guide">User Guide</a>
+            <a href="#scripts">Scripts</a>
+            <a href="#schema">Schema</a>
+            <a href="#pankgraph" class="active">PanKgraph</a>
+            <a href="#browser">Integrated Cell Browser</a>
+            <a href="#data" class="active">Data</a>
+            <a href="#resources">Resources</a>
+            <a href="#about">About</a>
+            <a href="#help">Help</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Info Banner -->
+        <div class="info-banner">
+            <p>The Data Library enables query and browsing components of analysis resources created by Pankbase, including meta-data on human donors and biosamples, details on experimental assays, standardized processing of data ('processed results'), workflows used to process data and create resources, and the resources themselves ('analysis results').</p>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <h2 class="search-title">Search Data</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Search the site...">
+                <button>Search</button>
+            </div>
+        </div>
+
+        <!-- Data Download Carousel Section -->
+        <div class="carousel-section">
+            <h2 class="section-header">Data Download</h2>
+            <div class="carousel-container">
+                <button class="carousel-btn carousel-btn-left" onclick="scrollCarousel(-1)">‹</button>
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-item" data-action="download" data-resource="pankbase-scrna-umap" data-url="/download/pankbase-scrna-umap">
+                            <div class="carousel-item-title">PanKbase scRNA UMAP</div>
+                            <div class="carousel-item-description">Single-cell RNA sequencing UMAP visualization of pancreatic cell populations</div>
+                            <div class="carousel-item-meta">Updated: Oct 2025 | 3.2M cells</div>
+                        </div>
+                        <div class="carousel-item" data-action="download" data-resource="deg-analysis" data-url="/download/deg-analysis">
+                            <div class="carousel-item-title">DEG Analysis</div>
+                            <div class="carousel-item-description">Differential gene expression analysis across pancreatic cell types and conditions</div>
+                            <div class="carousel-item-meta">Updated: Oct 2025 | </div>
+                        </div>
+                        <div class="carousel-item" data-action="download" data-resource="snatac-marker-peaks" data-url="/download/snatac-marker-peaks">
+                            <div class="carousel-item-title">snATAC Marker Peaks</div>
+                            <div class="carousel-item-description">Single-nucleus ATAC-seq marker peaks identifying regulatory regions</div>
+                            <div class="carousel-item-meta">Updated: Sep 2025 | 180K peaks</div>
+                        </div>
+                        <div class="carousel-item" data-action="download" data-resource="snatac-umap" data-url="/download/snatac-umap">
+                            <div class="carousel-item-title">snATAC UMAP</div>
+                            <div class="carousel-item-description">Single-nucleus ATAC-seq UMAP visualization of chromatin accessibility</div>
+                            <div class="carousel-item-meta">Updated: Sep 2025 | 91K nuclei</div>
+                        </div>
+                        <div class="carousel-item" data-action="download" data-resource="pankbase-donors" data-url="/download/pankbase-donors">
+                            <div class="carousel-item-title">PanKbase Donors</div>
+                            <div class="carousel-item-description">Comprehensive donor metadata including demographics and clinical information</div>
+                            <div class="carousel-item-meta">Updated: Oct 2025 | 3.7K donors</div>
+                        </div>
+                        <div class="carousel-item" data-action="download" data-resource="pankbase-biosamples" data-url="/download/pankbase-biosamples">
+                            <div class="carousel-item-title">PanKbase Biosamples</div>
+                            <div class="carousel-item-description">Pancreatic biosample collection with detailed experimental protocols</div>
+                            <div class="carousel-item-meta">Updated: Oct 2025 | 3.6K samples</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-btn-right" onclick="scrollCarousel(1)">›</button>
+            </div>
+        </div>
+
+        <!-- Tools & Resources Section -->
+        <div class="tools-section">
+            <h2 class="section-header">Tools & Resources</h2>
+            <div class="cards-grid">
+                <div class="card" data-action="navigate" data-page="api" data-url="/api">
+                    <div class="card-icon">🔌</div>
+                    <div class="card-title">API Access</div>
+                    <div class="card-description">Programmatic access to PanKbase data through RESTful API endpoints for integration with your analysis pipelines</div>
+                </div>
+                <div class="card" data-action="navigate" data-page="scripts" data-url="/scripts">
+                    <div class="card-icon">{'</>'}</div>
+                    <div class="card-title">Scripts</div>
+                    <div class="card-description">Data exploration scripts and tools for PanKbase analysis workflows and custom data processing</div>
+                </div>
+                <div class="card" data-action="navigate" data-page="data-standards" data-url="/data-standards">
+                    <div class="card-icon">📋</div>
+                    <div class="card-title">Data Standards</div>
+                    <div class="card-description">Data schema and metadata profiles used in PanKbase for standardized pancreatic research data</div>
+                </div>
+                <div class="card" data-action="navigate" data-page="user-guide" data-url="/user-guide">
+                    <div class="card-icon">📖</div>
+                    <div class="card-title">User Guide</div>
+                    <div class="card-description">Comprehensive guide for using the PanKbase Data Library and navigating available resources</div>
+                </div>
+                <div class="card" data-action="navigate" data-page="news" data-url="/news">
+                    <div class="card-icon">📰</div>
+                    <div class="card-title">Data Library News</div>
+                    <div class="card-description">Latest updates, announcements, and news about the PanKbase Data Library and new resources</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Access Section -->
+        <div class="data-access-section">
+            <h2 class="section-header">Data Access</h2>
+            <div class="cards-grid">
+                <div class="card" data-action="browse" data-category="donors" data-url="/browse/donors">
+                    <div class="card-icon">👥</div>
+                    <div class="card-title">Donors</div>
+                    <div class="card-count">(3.7K)</div>
+                    <div class="card-description">Human donors of a pancreatic biosample</div>
+                </div>
+                <div class="card" data-action="browse" data-category="biosamples" data-url="/browse/biosamples">
+                    <div class="card-icon">🧪</div>
+                    <div class="card-title">Biosamples</div>
+                    <div class="card-count">(3.6K)</div>
+                    <div class="card-description">Pancreatic biosamples obtained from a donor</div>
+                </div>
+                <div class="card" data-action="browse" data-category="assays" data-url="/browse/assays">
+                    <div class="card-icon">🔬</div>
+                    <div class="card-title">Assays</div>
+                    <div class="card-count">(627)</div>
+                    <div class="card-description">Experimental assays performed on a biosample</div>
+                </div>
+                <div class="card" data-action="browse" data-category="intermediate-results" data-url="/browse/intermediate-results">
+                    <div class="card-icon">📊</div>
+                    <div class="card-title">Intermediate Analysis Results</div>
+                    <div class="card-count">(378)</div>
+                    <div class="card-description">Standardized processing of data generated from an assay</div>
+                </div>
+                <div class="card" data-action="browse" data-category="resource-analysis" data-url="/browse/resource-analysis">
+                    <div class="card-icon">📦</div>
+                    <div class="card-title">Resource Analysis</div>
+                    <div class="card-count">(3)</div>
+                    <div class="card-description">Resource used to perform a principal analysis such as a donor x gene count matrix</div>
+                </div>
+                <div class="card" data-action="browse" data-category="principal-results" data-url="/browse/principal-results">
+                    <div class="card-icon">📈</div>
+                    <div class="card-title">Principal Analysis Results</div>
+                    <div class="card-count">(47)</div>
+                    <div class="card-description">End result of analyzing data such as differential expression or peak calls
+</div>
+                </div>
+                <div class="card" data-action="browse" data-category="workflows" data-url="/browse/workflows">
+                    <div class="card-icon">⚙️</div>
+                    <div class="card-title">Workflows</div>
+                    <div class="card-count">(5)</div>
+                    <div class="card-description">Analysis workflows used to processed data and create resources</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentPosition = 0;
+        const track = document.getElementById('carouselTrack');
+        const items = document.querySelectorAll('.carousel-item');
+        const itemWidth = 300; // 280px width + 20px gap
+
+        function scrollCarousel(direction) {
+            const maxScroll = -(itemWidth * (items.length - 4)); // Show 4 items at a time
+            
+            currentPosition += direction * itemWidth * 2; // Scroll by 2 items
+            
+            if (currentPosition > 0) {
+                currentPosition = 0;
+            } else if (currentPosition < maxScroll) {
+                currentPosition = maxScroll;
+            }
+            
+            track.style.transform = `translateX(${currentPosition}px)`;
+        }
+
+        // Add click handlers to carousel items
+        items.forEach(item => {
+            item.addEventListener('click', function() {
+                const action = this.dataset.action;
+                const resource = this.dataset.resource;
+                const url = this.dataset.url;
+                const title = this.querySelector('.carousel-item-title').textContent;
+                
+                if (action === 'download') {
+                    // TODO: Implement download functionality
+                    handleDownload(resource, url, title);
+                }
+            });
+        });
+
+        // Add click handlers to cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function() {
+                const action = this.dataset.action;
+                const page = this.dataset.page || this.dataset.category;
+                const url = this.dataset.url;
+                const title = this.querySelector('.card-title').textContent;
+                
+                if (action === 'navigate') {
+                    // TODO: Implement navigation to page
+                    handleNavigate(page, url, title);
+                } else if (action === 'browse') {
+                    // TODO: Implement browse category
+                    handleBrowse(page, url, title);
+                }
+            });
+        });
+
+        // Action handlers - template functions for implementation
+        function handleDownload(resource, url, title) {
+            console.log('DOWNLOAD:', {
+                resource: resource,
+                url: url,
+                title: title,
+                action: 'download'
+            });
+            alert(`Download: ${title}\nResource: ${resource}\nURL: ${url}`);
+            // TODO: Implement actual download logic
+            // Example: window.location.href = url;
+        }
+
+        function handleNavigate(page, url, title) {
+            console.log('NAVIGATE:', {
+                page: page,
+                url: url,
+                title: title,
+                action: 'navigate'
+            });
+            alert(`Navigate to: ${title}\nPage: ${page}\nURL: ${url}`);
+            // TODO: Implement actual navigation
+            // Example: window.location.href = url;
+        }
+
+        function handleBrowse(category, url, title) {
+            console.log('BROWSE:', {
+                category: category,
+                url: url,
+                title: title,
+                action: 'browse'
+            });
+            alert(`Browse: ${title}\nCategory: ${category}\nURL: ${url}`);
+            // TODO: Implement actual browse functionality
+            // Example: window.location.href = url;
+        }
+    </script>
+</body>
+</html>
