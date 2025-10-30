@@ -11,22 +11,71 @@ The Data Download carousel includes 6 downloadable resources. Each needs to be p
 ## 1. PanKbase scRNA UMAP (`pankbase-scrna-umap`)
 
 ### Files to Prepare:
-- [ ] **UMAP object** (e.g., RDS, H5AD, or other format)
-- [ ] **Cell by gene matrix** (counts/normalized data)
-- [ ] **Metadata file** (cell annotations, sample info, etc.)
-- [ ] **UMAP coordinates** (embedding coordinates)
-- [ ] **README/documentation** explaining file contents and usage
+- [X] **UMAP object** (e.g., RDS, H5AD, or other format)
+- [X] **Cell by gene matrix** (counts/normalized data)
+- [X] **Metadata file** (cell annotations, sample info, etc.)
+## Metadata Description
+
+The `metadata.tsv` file contains extensive information for each cell, organized into the following categories:
+
+### Cell-Level QC Metrics
+- `NAME`: Unique cell identifier (SRA Run ID + Barcode)
+- `Cell Type`: Annotated cell type
+- `nCount RNA`: Total UMI counts per cell
+- `nFeature RNA`: Number of genes detected per cell
+- `rna pct mitochondrial`: Percentage of mitochondrial reads
+
+### Sequencing Information
+- `samples`: SRA Run ID
+- `barcodes`: Cell barcode
+- `treatments`: Experimental treatment (e.g., infected_with_SARS-CoV-2)
+- `chemistry`: 10X Genomics chemistry version (V2, V3)
+- `source`: Data source (HPAP, nPOD, ADI, IIDP)
+
+### Donor Demographics
+- `Center Donor IRRID`: Research Resource Identifier for donor
+- `Donor Accession`: PankBase donor accession (PKBDO...)
+- `Sex`: Donor biological sex
+- `Age (years)`: Donor age
+- `BMI`: Body Mass Index
+- `Reported Ethnicities`: Self-reported ethnicity
+
+### Diabetes-Related Information
+- `Diabetes Status`: NA (non-diabetic), T1D, T2D, etc.
+- `Diabetes Duration (years)`: Years since diagnosis
+- `HbA1C (percentage)`: Hemoglobin A1C levels
+- `C Peptide (ng/ml)`: C-peptide levels
+- `Family History of Diabetes`: TRUE/FALSE
+- `Glucose Lowering Theraphy`: Treatment information
+
+### Autoantibody Data
+- `AAB GADA POSITIVE`: Glutamic acid decarboxylase antibody
+- `AAB IA2 POSITIVE`: Insulinoma-associated antigen 2 antibody
+- `AAB ZNT8 POSITIVE`: Zinc transporter 8 antibody
+- `AAB IAA POSITIVE`: Insulin autoantibody
+- *Corresponding values (unit/ml) for each antibody*
+
+### Biosample Information
+- `Biosample Accession`: PankBase biosample accession (PKBSM...)
+- `Biosample Cold Ischaemia Time (hours)`: Time on ice before processing
+- `Islet Yield IEQ`: Islet equivalent yield
+- `IEQ Pancreas Weight (grams)`: Pancreas weight
+- `Isolation Center`: Organization that performed islet isolation
+- `Organ Source`: deceased or living
+- `Donation Type`: DBD (Donation after Brain Death), DCD, etc.
+
+- [X] **UMAP coordinates** (embedding coordinates)
+- [X] **README/documentation** explaining file contents and usage
 
 ### Actions:
-- [ ] Validate all files are complete and error-free
-- [ ] Compress all files into `pankbase-scrna-umap.zip`
-- [ ] Create manifest file listing contents and checksums
-- [ ] Upload to S3 bucket at `/download/pankbase-scrna-umap/`
-- [ ] Set appropriate S3 permissions (public read)
-- [ ] Update "Updated: Oct 2025 | 3.2M cells" metadata
+- [X] Validate all files are complete and error-free
+- [X] Compress all files into `pankbase-scrna-umap.zip`
+- [X] Create manifest file listing contents
+- [X] Upload to S3 bucket at `/download/`
+- [X] Set appropriate S3 permissions (public read)
+- [X] Update "Updated: Oct 2025 | 3.2M cells" metadata
 
 ### Notes:
-- Total cells: 3.2M
 - Ensure file sizes are optimized for download
 - Consider providing multiple format options (H5AD, RDS, etc.)
 
@@ -68,8 +117,8 @@ metadata-pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3.tsv
 - [X] Update "Updated: Oct 2025" metadata
 
 ### Future:
-[] Include information about statistical methods used tbd
-[] Provide example scripts for loading and using the data tbd
+- [ ] Include information about statistical methods used tbd
+- [ ] Provide example scripts for loading and using the data tbd
 
 ---
 
