@@ -32,20 +32,19 @@ The Data Download carousel includes 6 downloadable resources. Each needs to be p
 
 ---
 
-## 2. DEG Analysis (`deg-analysis`)
+## 2. Pseudobulk RUV normalized counts (`pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3`)
 
 ### Files to Prepare:
-- [ ] **Differential gene expression results** for all cell types
+- [ ] **Pseudobulk RUV normalized counts** for 6 cell types
 - [ ] **Metadata file** describing the comparison groups
-- [ ] **Summary statistics** file
 - [ ] **README/documentation** explaining the analysis methodology
 
 ### Actions:
-- [ ] Compile DEG results for all cell types
+- [ ] Compile Pseudobulk RUV normalized counts for 6 cell types
 - [ ] Validate completeness of comparisons
-- [ ] Compress all files into `deg-analysis.zip`
+- [ ] Compress all files into `pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3.zip`
 - [ ] Create manifest file with file descriptions
-- [ ] Upload to S3 bucket at `/download/deg-analysis/`
+- [ ] Upload to S3 bucket at `/download/`
 - [ ] Set appropriate S3 permissions
 - [ ] Update "Updated: Oct 2025" metadata
 
