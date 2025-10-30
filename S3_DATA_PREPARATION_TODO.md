@@ -173,47 +173,44 @@ metadata-pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3.tsv
 ## 5. PanKbase Donors (`pankbase-donors`)
 
 ### Files to Prepare:
-- [ ] **Donor metadata TSV file** with all 3.7K donors
-- [ ] **Column descriptions/documentation** explaining each field
-- [ ] **Data dictionary** with field definitions and allowed values
-- [ ] **README** with sample queries and usage examples
+- [X] **Donor metadata TSV file** with all 3.7K donors
+- [X] **Column descriptions/documentation** explaining each field
+- [X] **Data dictionary** with field definitions and allowed values
+- [X] **README** with sample queries and usage examples
 
 ### Actions:
-- [ ] Validate TSV format and encoding (UTF-8)
-- [ ] Check for missing or inconsistent data
-- [ ] Compress file(s) into `pankbase-donors.zip`
-- [ ] Create manifest file
-- [ ] Upload to S3 bucket at `/download/pankbase-donors/`
-- [ ] Set appropriate S3 permissions
-- [ ] Update "Updated: Oct 2025 | 3.7K donors" metadata
+- [X] Validate TSV format and encoding (UTF-8)
+- [X] Check for missing or inconsistent data
+- [X] Compress file(s) into `pankbase-donors.zip`
+- [X] Upload to S3 bucket at `/download/`
+- [X] Set appropriate S3 permissions
+- [X] Update "Updated: Oct 2025 | 3.7K donors" metadata
 
 ### Notes:
 - Total donors: 3.7K
 - Ensure data privacy compliance (de-identification if necessary)
-- Include version information
+- Include version information schema version 18
 
 ---
 
 ## 6. PanKbase Biosamples (`pankbase-biosamples`)
 
 ### Files to Prepare:
-- [ ] **Biosample metadata TSV file** with all 3.6K samples
-- [ ] **Column descriptions** and data dictionary
-- [ ] **README** with usage examples and sample queries
+- [X] **Biosample metadata TSV file** with all 3.6K samples
+- [X] **Column descriptions** and data dictionary
+- [X] **README** with usage examples and sample queries
 
 ### Actions:
-- [ ] Validate TSV format and data consistency
-- [ ] Cross-reference with donor metadata
-- [ ] Compress file(s) into `pankbase-biosamples.zip`
-- [ ] Create manifest file
-- [ ] Upload to S3 bucket at `/download/pankbase-biosamples/`
-- [ ] Set appropriate S3 permissions
-- [ ] Update "Updated: Oct 2025 | 3.6K samples" metadata
+- [X] Validate TSV format and data consistency
+- [X] Cross-reference with donor metadata
+- [X] Compress file(s) into `pankbase-biosamples.zip`
+- [X] Upload to S3 bucket at `/download/`
+- [X] Set appropriate S3 permissions
+- [X] Update "Updated: Oct 2025 | 3.6K samples" metadata
 
 ### Notes:
 - Total biosamples: 3.6K
 - Ensure linking to donor IDs is accurate
-- Include information about sample preparation protocols
 
 ---
 
