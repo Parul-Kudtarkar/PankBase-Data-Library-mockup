@@ -252,20 +252,14 @@ metadata-pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3.tsv
 ## File Structure Example
 
 ```
-pankbase-data/
+pankbase-data-v1/
 ├── download/
-│   ├── pankbase-scrna-umap/
-│   │   └── pankbase-scrna-umap.zip
-│   ├── deg-analysis/
-│   │   └── deg-analysis.zip
-│   ├── snatac-marker-peaks/
-│   │   └── snatac-marker-peaks.zip
-│   ├── snatac-umap/
-│   │   └── snatac-umap.zip
-│   ├── pankbase-donors/
-│   │   └── pankbase-donors.zip
-│   └── pankbase-biosamples/
-│       └── pankbase-biosamples.zip
+│   ├── pankbase-scrna-umap-v3.3.tar.gz	
+│   ├── pankbase-snatac-umap-v1.0.tar.gz
+│   ├── pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3.tar.gz
+│   ├──  pankbase-peak-counts-snATAC-seq-umap1.0.tar.gz
+│   ├── pankbase-biosamples.tar.gz
+│   └── pankbase-donors.tar.gz
 ```
 
   
