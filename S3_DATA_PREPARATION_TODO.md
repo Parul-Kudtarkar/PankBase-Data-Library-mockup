@@ -110,6 +110,7 @@ metadata-pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3.tsv
 
 ### Actions:
 - [X] Compile Pseudobulk RUV normalized counts for 6 cell types
+- [X] Include information about pipeline used
 - [X] Compress all files into `pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3.zip`
 - [X] Create manifest file with file descriptions
 - [X] Upload to S3 bucket at `/download/`
@@ -117,7 +118,6 @@ metadata-pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3.tsv
 - [X] Update "Updated: Oct 2025" metadata
 
 ### Future:
-- [ ] Include information about statistical methods used tbd
 - [ ] Provide example scripts for loading and using the data tbd
 
 ---
