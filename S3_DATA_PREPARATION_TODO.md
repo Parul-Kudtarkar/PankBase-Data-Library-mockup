@@ -35,22 +35,41 @@ The Data Download carousel includes 6 downloadable resources. Each needs to be p
 ## 2. Pseudobulk RUV normalized counts (`pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3`)
 
 ### Files to Prepare:
-- [ ] **Pseudobulk RUV normalized counts** for 6 cell types
-- [ ] **Metadata file** describing the comparison groups
-- [ ] **README/documentation** explaining the analysis methodology
+- [X] **Pseudobulk RUV normalized counts** for 6 cell types
+- [X] **Metadata file** describing the files
+      
+metadata-pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3.tsv
+
+| Accession | Award | Description | File Set Type | Files | Input File Sets | Lab | Summary |
+|-----------|-------|-------------|---------------|-------|-----------------|-----|---------|
+| PKBDS3483TGEQ | U24DK138512-DK138515 | RUV-normalized pseudo-bulk counts for differential expression analysis of pancreatic stellate cell derived from cells in the single cell RNA-seq browser v3.3 | principal analysis | PKBFI3988BVSI,PKBFI6741PPHZ | PKBDS1349YHGQ | pankbase-consortium | principal analysis of scRNA-seq data |
+| PKBDS8497JAAX | U24DK138512-DK138515 | RUV-normalized pseudo-bulk counts for differential expression analysis of pancreatic ductal cell derived from cells in the single cell RNA-seq browser v3.3 | principal analysis | PKBFI6084ZAJV,PKBFI1941JRTI | PKBDS1349YHGQ | pankbase-consortium | principal analysis of scRNA-seq data |
+| PKBDS6610NSWK | U24DK138512-DK138515 | RUV-normalized pseudo-bulk counts for differential expression analysis of pancreatic acinar cell derived from cells in the single cell RNA-seq browser v3.3 | principal analysis | PKBFI6084CGGA,PKBFI3898AAJA | PKBDS1349YHGQ | pankbase-consortium | principal analysis of scRNA-seq data |
+| PKBDS5505XMWS | U24DK138512-DK138515 | RUV-normalized pseudo-bulk counts for differential expression analysis of pancreatic D cell derived from cells in the single cell RNA-seq browser v3.3 | principal analysis | PKBFI1553PGUM,PKBFI3428ENDH | PKBDS1349YHGQ | pankbase-consortium | principal analysis of scRNA-seq data |
+| PKBDS3519RAFX | U24DK138512-DK138515 | RUV-normalized pseudo-bulk counts for differential expression analysis of type B pancreatic cell derived from cells in the single cell RNA-seq browser v3.3 | principal analysis | PKBFI1695DUZE,PKBFI5887OGWB | PKBDS1349YHGQ | pankbase-consortium | principal analysis of scRNA-seq data |
+| PKBDS9343POSP | U24DK138512-DK138515 | RUV-normalized pseudo-bulk counts for differential expression analysis of pancreatic A cell derived from cells in the single cell RNA-seq browser v3.3 | principal analysis | PKBFI1082DWBN,PKBFI4455LTGH | PKBDS1349YHGQ | pankbase-consortium | principal analysis of scRNA-seq data |
+
+- [X] **README/documentation** explaining the analysis methodology
+1. Overview
+2. Dataset Information
+3. Cell Types Included
+4. Citation
+5. Contact & Support
+6. Version History
+7. License
+
 
 ### Actions:
-- [ ] Compile Pseudobulk RUV normalized counts for 6 cell types
-- [ ] Validate completeness of comparisons
-- [ ] Compress all files into `pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3.zip`
-- [ ] Create manifest file with file descriptions
-- [ ] Upload to S3 bucket at `/download/`
-- [ ] Set appropriate S3 permissions
-- [ ] Update "Updated: Oct 2025" metadata
+- [X] Compile Pseudobulk RUV normalized counts for 6 cell types
+- [X] Compress all files into `pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3.zip`
+- [X] Create manifest file with file descriptions
+- [X] Upload to S3 bucket at `/download/`
+- [X] Set appropriate S3 permissions
+- [X] Update "Updated: Oct 2025" metadata
 
-### Notes:
-- Include information about statistical methods used
-- Provide example scripts for loading and using the data
+### Future:
+[] Include information about statistical methods used tbd
+[] Provide example scripts for loading and using the data tbd
 
 ---
 
