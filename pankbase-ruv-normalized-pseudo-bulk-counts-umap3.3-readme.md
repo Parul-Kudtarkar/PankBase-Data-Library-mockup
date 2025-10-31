@@ -17,14 +17,17 @@ This dataset contains **RUV-normalized pseudo-bulk gene expression counts** for 
 
 This release includes normalized counts for the following pancreatic cell types:
 
-| Cell Type | Accession | Count File | Metadata File |
-|-----------|-----------|------------|---------------|
-| **Pancreatic A cell** (Alpha) | PKBDS9343POSP | PKBFI1082DWBN | PKBFI4455LTGH |
-| **Type B pancreatic cell** (Beta) | PKBDS3519RAFX | PKBFI1695DUZE | PKBFI5887OGWB |
-| **Pancreatic D cell** (Delta) | PKBDS5505XMWS | PKBFI1553PGUM | PKBFI3428ENDH |
-| **Pancreatic acinar cell** | PKBDS6610NSWK | PKBFI6084CGGA | PKBFI3898AAJA |
-| **Pancreatic ductal cell** | PKBDS8497JAAX | PKBFI6084ZAJV | PKBFI1941JRTI |
-| **Pancreatic stellate cell** | PKBDS3483TGEQ | PKBFI3988BVSI | PKBFI6741PPHZ |
+### Metadata Contents
+
+| ID | Award | Lab | Description | Files |
+|----|-------|-----|-------------|-------|
+| PKBDS3483TGEQ | U24DK138512-DK138515 | pankbase-consortium | RUV-normalized pseudo-bulk counts for differential expression analysis of pancreatic stellate cell derived from cells in the single cell RNA-seq browser v3.3 | ActiveStellate_k-chosen_fdr0.05_all.txt, ActiveStellate_ruvNormCounts.txt |
+| PKBDS8497JAAX | U24DK138512-DK138515 | pankbase-consortium | RUV-normalized pseudo-bulk counts for differential expression analysis of pancreatic ductal cell derived from cells in the single cell RNA-seq browser v3.3 | Ductal_k-chosen_fdr0.05_all.txt, Ductal_ruvNormCounts.txt |
+| PKBDS6610NSWK | U24DK138512-DK138515 | pankbase-consortium | RUV-normalized pseudo-bulk counts for differential expression analysis of pancreatic acinar cell derived from cells in the single cell RNA-seq browser v3.3 | Acinar_k-chosen_fdr0.05_all.txt, Acinar_ruvNormCounts.txt |
+| PKBDS5505XMWS | U24DK138512-DK138515 | pankbase-consortium | RUV-normalized pseudo-bulk counts for differential expression analysis of pancreatic D cell derived from cells in the single cell RNA-seq browser v3.3 | Delta_k-chosen_fdr0.05_all.txt, Delta_ruvNormCounts.txt |
+| PKBDS3519RAFX | U24DK138512-DK138515 | pankbase-consortium | RUV-normalized pseudo-bulk counts for differential expression analysis of type B pancreatic cell derived from cells in the single cell RNA-seq browser v3.3 | Beta_k-chosen_fdr0.05_all.txt, Beta_ruvNormCounts.txt |
+| PKBDS9343POSP | U24DK138512-DK138515 | pankbase-consortium | RUV-normalized pseudo-bulk counts for differential expression analysis of pancreatic A cell derived from cells in the single cell RNA-seq browser v3.3 | Alpha_k-chosen_fdr0.05_all.txt, Alpha_ruvNormCounts.txt |
+
 
 
 ## Citation
