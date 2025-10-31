@@ -22,8 +22,6 @@ This resource enables researchers to explore gene expression patterns at single-
 |-----------|-------------|--------|
 | `060425_scRNA_v3.3.rds` | Complete Seurat object with processed data | RDS (R) |
 | `metadata.tsv` | Cell-level metadata with donor and biosample information | TSV |
-| `coordinates.tsv` | UMAP coordinates for each cell | TSV |
-| `lognorm_counts.tsv.gz.tsv` | Log-normalized gene expression matrix | TSV (compressed) |
 
 ## Data Processing
 https://data.pankbase.org/workflows/PKBWF9623SLYX
