@@ -12,7 +12,6 @@ The Data Download carousel includes 6 downloadable resources. Each needs to be p
 
 ### Files to Prepare:
 - [X] **UMAP object** (e.g., RDS, H5AD, or other format)
-- [X] **Cell by gene matrix** (counts/normalized data)
 - [X] **Metadata file** (cell annotations, sample info, etc.)
 ## Metadata Description
 
@@ -86,17 +85,6 @@ The `metadata.tsv` file contains extensive information for each cell, organized 
 ### Files to Prepare:
 - [X] **Pseudobulk RUV normalized counts** for 6 cell types
 - [X] **Metadata file** describing the files
-      
-metadata-pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3.tsv
-
-| Accession | Award | Description | File Set Type | Files | Input File Sets | Lab | Summary |
-|-----------|-------|-------------|---------------|-------|-----------------|-----|---------|
-| PKBDS3483TGEQ | U24DK138512-DK138515 | RUV-normalized pseudo-bulk counts for differential expression analysis of pancreatic stellate cell derived from cells in the single cell RNA-seq browser v3.3 | principal analysis | PKBFI3988BVSI,PKBFI6741PPHZ | PKBDS1349YHGQ | pankbase-consortium | principal analysis of scRNA-seq data |
-| PKBDS8497JAAX | U24DK138512-DK138515 | RUV-normalized pseudo-bulk counts for differential expression analysis of pancreatic ductal cell derived from cells in the single cell RNA-seq browser v3.3 | principal analysis | PKBFI6084ZAJV,PKBFI1941JRTI | PKBDS1349YHGQ | pankbase-consortium | principal analysis of scRNA-seq data |
-| PKBDS6610NSWK | U24DK138512-DK138515 | RUV-normalized pseudo-bulk counts for differential expression analysis of pancreatic acinar cell derived from cells in the single cell RNA-seq browser v3.3 | principal analysis | PKBFI6084CGGA,PKBFI3898AAJA | PKBDS1349YHGQ | pankbase-consortium | principal analysis of scRNA-seq data |
-| PKBDS5505XMWS | U24DK138512-DK138515 | RUV-normalized pseudo-bulk counts for differential expression analysis of pancreatic D cell derived from cells in the single cell RNA-seq browser v3.3 | principal analysis | PKBFI1553PGUM,PKBFI3428ENDH | PKBDS1349YHGQ | pankbase-consortium | principal analysis of scRNA-seq data |
-| PKBDS3519RAFX | U24DK138512-DK138515 | RUV-normalized pseudo-bulk counts for differential expression analysis of type B pancreatic cell derived from cells in the single cell RNA-seq browser v3.3 | principal analysis | PKBFI1695DUZE,PKBFI5887OGWB | PKBDS1349YHGQ | pankbase-consortium | principal analysis of scRNA-seq data |
-| PKBDS9343POSP | U24DK138512-DK138515 | RUV-normalized pseudo-bulk counts for differential expression analysis of pancreatic A cell derived from cells in the single cell RNA-seq browser v3.3 | principal analysis | PKBFI1082DWBN,PKBFI4455LTGH | PKBDS1349YHGQ | pankbase-consortium | principal analysis of scRNA-seq data |
 
 - [X] **README/documentation** explaining the analysis methodology
 1. Overview
@@ -125,19 +113,16 @@ metadata-pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3.tsv
 ## 3. snATAC Marker Peaks (`snatac-marker-peaks`)
 
 ### Files to Prepare:
-- [ ] **Marker peaks data** for each cell type
-- [ ] **Peak annotations** (genomic coordinates, associated genes)
-- [ ] **Metadata file** with cell type information
-- [ ] **README/documentation** explaining peak calling methodology
+- [X] **Marker peaks data** for each cell type
+- [X] **Metadata file** with cell type information
+- [X] **README/documentation** explaining peak calling methodology
 
 ### Actions:
-- [ ] Organize peaks by cell type
-- [ ] Validate peak coordinates and annotations
-- [ ] Compress all files into `snatac-marker-peaks.zip`
-- [ ] Create manifest file
-- [ ] Upload to S3 bucket at `/download/snatac-marker-peaks/`
-- [ ] Set appropriate S3 permissions
-- [ ] Update "Updated: Sep 2025 | peaks" metadata
+- [X] Organize peaks by cell type
+- [X] Compress all files into `pankbase-peak-counts-snATAC-seq-umap1.0`
+- [X] Upload to S3 bucket at `/download/`
+- [X] Set appropriate S3 permissions
+- [X] Update "Updated: Sep 2025 | peaks" metadata
 
 ### Notes:
 - Total peaks:
@@ -257,7 +242,7 @@ pankbase-data-v1/
 │   ├── pankbase-scrna-umap-v3.3.tar.gz	
 │   ├── pankbase-snatac-umap-v1.0.tar.gz
 │   ├── pankbase-ruv-normalized-pseudo-bulk-counts-umap3.3.tar.gz
-│   ├──  pankbase-peak-counts-snATAC-seq-umap1.0.tar.gz
+│   ├── pankbase-peak-counts-snATAC-seq-umap1.0.tar.gz
 │   ├── pankbase-biosamples.tar.gz
 │   └── pankbase-donors.tar.gz
 ```
